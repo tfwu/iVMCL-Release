@@ -111,5 +111,15 @@ venv.bak/
 .DS_Store
 mmcv/video/optflow_warp/flow_warp_module.cpp
 
+# Pytorch
+*.pth
+*.py~
+*.sh~
+
 # ivmcl
 backup*.py
+*.pkl
+*.pkl.json
+*.log.json
+data/
+work_dirs/
