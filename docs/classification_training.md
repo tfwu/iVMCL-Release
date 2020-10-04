@@ -19,7 +19,31 @@ The code has been tested under Ubuntu 16.04 LTS and 18.04 LTS. It also should wo
     cd data
     ln -s YOUR_IMAGENET_PATH ./
     ```
-    `E.g.`, the data root (relative) directory will be: `data_root=data/ILSVRC2015/Data/CLS-LOC`
+    `E.g.`, the data root (relative) directory will be: `data_root=data/ILSVRC2015/Data/CLS-LOC`.
+
+    The directory structure will look like
+
+    ```
+    iVMCL-Release
+    ├── mmcv
+    ├── mmdetection
+        ├── mmdet
+        ├── tools
+        ├── configs
+        ├── tools_ivmcl
+        ├── configs_ivmcl
+        ├── scripts_ivmcl
+        ├── data
+        │   ├── ILSVRC2015
+        │   │   ├── Annotations
+        │   │   ├── ImageSets
+        │   │   ├── Data
+        │   │       ├── CLS-LOC
+        │   │           ├── train
+        │   │           ├── test
+        |   |           ├── val
+        |   |           ├── val_orig
+    ```
 
 ### ImageNet-1k Reassessed
 
@@ -45,6 +69,7 @@ The code has been tested under Ubuntu 16.04 LTS and 18.04 LTS. It also should wo
 - Select a configuration file at the cloned `iVMCL-Release/mmdetection/configs_ivmcl`, or create a new one accordingly.
     - `E.g.`, consider `aognet_12m_an_imagenet.py`
 - Check `data_root` in a configuration file to make sure it points to the correct directory
+- Change the training hyperparameters if needed, `e.g.`, batch_size
 - Run the script to train
     ```shell
     cd iVMCL-Release/mmdetection

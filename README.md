@@ -1,6 +1,9 @@
 # iVMCL-Release
 
-It is mainly built on two great python and PyTorch libraries: [MMCV](https://github.com/open-mmlab/mmcv) (commit fe83261, 10/01/2020) and [MMDetection](https://github.com/open-mmlab/mmdetection) (commit 5b18b94, 10/01/2020).
+It is mainly built on two great python and PyTorch libraries: [MMCV](https://github.com/open-mmlab/mmcv) (commit fe83261, 10/01/2020) and [MMDetection](https://github.com/open-mmlab/mmdetection) (commit 5b18b94, 10/01/2020). We will synchronize and update the two repos with the remote master repos when significant updates arise.
+
+- [Modifications in MMCV](docs/mmcv_ivmcl.md)
+- [Modifications in MMDetection](docs/mmdetection_ivmcl.md)
 
 It also uses codes from the great [PyToch Image Models](https://github.com/rwightman/pytorch-image-models) Github repo.
 
@@ -13,7 +16,7 @@ It includes official PyTorch implementations of
 ## Model Zoo
 
 - [x] [ImageNet Classification](docs/classification.md)
-- [ ] [MS-COCO Detection & Segmentation](docs/detection.md)
+- [ ] [MS-COCO Detection & Segmentation](docs/detection.md) In progress.
 
 ## Training from Scratch
 

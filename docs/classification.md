@@ -3,7 +3,7 @@
 Remarks: All the models are directly converted from the previous implementation, the [AOGNet-V2](https://github.com/iVMCL/AOGNet-v2) repo. There are very minor performance difference. This refactored code can be used to retrain those or train new models from scratch.
 
 
-- [x] All the models are released on Google Drive ([link](https://drive.google.com/drive/folders/1puKc5g03bnt1qtzaHLCxu5-8tWmlo_WP?usp=sharing))
+- [x] **All the models are released on Google Drive** ([download link](https://drive.google.com/drive/folders/1puKc5g03bnt1qtzaHLCxu5-8tWmlo_WP?usp=sharing))
 - [x] Add the evaluation method proposed in [`Are we done with ImageNet?](https://arxiv.org/abs/2006.07159) See the *imagenet-1k-reassessed* column in the below table.
     - Please refer to [PyTorch Image Model (ImageNet-Reassessed)](https://github.com/rwightman/pytorch-image-models/blob/master/results/results-imagenet-real.csv) for a comprehensive evaluation of state-of-the-art DNNs.
 - [x] Add a few other third-party validation datasets, the [ImageNet V2 dataset](https://github.com/modestyachts/ImageNetV2), the [ImageNet Sketch dataset](https://github.com/HaohanWang/ImageNet-Sketch), the [ImageNet Adversarial dataset](https://github.com/hendrycks/natural-adv-examples).
