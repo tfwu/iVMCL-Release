@@ -15,6 +15,11 @@ It includes official PyTorch implementations of
 - [x] [ImageNet Classification](docs/classification.md)
 - [ ] [MS-COCO Detection & Segmentation](docs/detection.md)
 
+## Training from Scratch
+
+- [x] [ImageNet Classification](docs/classification_training.md)
+- [x] [Object Detection and Semantic Segmentation](docs/detection_training.md)
+
 ## Installation
 
 It follows the installation instructions in [MMCV](https://github.com/open-mmlab/mmcv) and [MMDetection](https://github.com/open-mmlab/mmdetection/blob/master/docs/install.md), which are summarized as follows.

@@ -1,6 +1,6 @@
 # ImageNet-1k Classification
 
-Remarks: All the models are directly converted from the previous implementation, the [AOGNet-V2](https://github.com/iVMCL/AOGNet-v2) repo. They are trained from scratch  There are minor performance difference.
+Remarks: All the models are directly converted from the previous implementation, the [AOGNet-V2](https://github.com/iVMCL/AOGNet-v2) repo. There are very minor performance difference. This refactored code can be used to retrain those or train new models from scratch.
 
 
 - [x] All the models are released on Google Drive ([link](https://drive.google.com/drive/folders/1puKc5g03bnt1qtzaHLCxu5-8tWmlo_WP?usp=sharing))
@@ -47,6 +47,8 @@ Remarks: All the models are directly converted from the previous implementation,
 | resnetv1d_50_an_imagenet_200e_ls_mixup  |     25.775 | (0.8, 0.95)    | (0.857, 0.969)         | (0.686, 0.882)               | (0.768, 0.937)          | (0.817, 0.961)       | (0.265, 0.441)  | (0.146, 0.432) | (0.016, 0.049) |
 | resnetv1d_101_bn_imagenet_200e_ls_mixup |     44.568 | (0.802, 0.951) | (0.86, 0.969)          | (0.685, 0.882)               | (0.772, 0.945)          | (0.817, 0.967)       | (0.295, 0.477)  | (0.141, 0.43)  | (0.018, 0.051) |
 | resnetv1d_101_an_imagenet_200e_ls_mixup |     45.020 | (0.81, 0.954)  | (0.863, 0.971)         | (0.696, 0.887)               | (0.778, 0.945)          | (0.82, 0.965)        | (0.3, 0.483)    | (0.199, 0.488) | (0.017, 0.049) |
+
+- Models trained with an advanced training setup: 200 epochs, 0.1 label smoothing, 0.2 mixup, cosine learning rate scheduler, SGD+Momentum, etc. All models are trained with 8 Nvidia V100 GPUs.  See [Attentive Normalization](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620069.pdf)(ECCV2020) for details.
 
 
 # Top-1 and Top-5 Accuracy (AN as a strong alternative to the [Squeeze-Excitation (SE) module](https://arxiv.org/pdf/1709.01507.pdf))
