@@ -10,10 +10,10 @@ The code is maintained to be almost the same as the remote master. When a new mo
             ├── models
                 ├── backbones
                     ├── aognet.py
-                    ├── resnet_an.py    # Attention Normalization
-                    ├── resnext_an.py   # Attention Normalization
-                    ├── densenet.py     # Attention Normalization
-                    ├── mobilenet_v2.py # Attention Normalization
+                    ├── resnet_an.py    # Attentive Normalization
+                    ├── resnext_an.py   # Attentive Normalization
+                    ├── densenet.py     # Attentive Normalization
+                    ├── mobilenet_v2.py # Attentive Normalization
     ```
 
 - [x] Add a new subfolder `ivmcl` consisting of modules for [AOGNets](https://openaccess.thecvf.com/content_CVPR_2019/papers/Li_AOGNets_Compositional_Grammatical_Architectures_for_Deep_Learning_CVPR_2019_paper.pdf) (CVPR2019) and for training ImageNet classifiers
