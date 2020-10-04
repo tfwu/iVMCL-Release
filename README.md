@@ -12,8 +12,8 @@ It includes official PyTorch implementations of
 
 ## Model Zoo
 
-- [ImageNet Classification](docs/classification.md)
-- [MS-COCO Detection & Segmentation](docs/detection.md)
+- [x] [ImageNet Classification](docs/classification.md)
+- [] [MS-COCO Detection & Segmentation](docs/detection.md)
 
 ## Installation
 

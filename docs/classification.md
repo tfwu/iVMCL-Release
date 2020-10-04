@@ -2,6 +2,8 @@
 
 Remarks: All the models are directly converted from the previous implementation, the [AOGNet-V2](https://github.com/iVMCL/AOGNet-v2) repo. They are trained from scratch  There are minor performance difference.
 
+
+- [x] All the models are released on Google Drive ([link](https://drive.google.com/drive/folders/1puKc5g03bnt1qtzaHLCxu5-8tWmlo_WP?usp=sharing))
 - [x] Add the evaluation method proposed in [`Are we done with ImageNet?](https://arxiv.org/abs/2006.07159) See the *imagenet-1k-reassessed* column in the below table.
     - Please refer to [PyTorch Image Model (ImageNet-Reassessed)](https://github.com/rwightman/pytorch-image-models/blob/master/results/results-imagenet-real.csv) for a comprehensive evaluation of state-of-the-art DNNs.
 - [x] Add a few other third-party validation datasets, the [ImageNet V2 dataset](https://github.com/modestyachts/ImageNetV2), the [ImageNet Sketch dataset](https://github.com/HaohanWang/ImageNet-Sketch), the [ImageNet Adversarial dataset](https://github.com/hendrycks/natural-adv-examples).
@@ -9,7 +11,7 @@ Remarks: All the models are directly converted from the previous implementation,
 
 
 
-# Top-1 and Top-5 Error Rates (w/ a normal training setup)
+# Top-1 and Top-5 Accuracy (w/ a normal training setup)
 |                  Model                  | Params (M) |  imagenet-1k   | imagenet-1k-reassessed | imagenetv2-matched-frequency | imagenetv2-threshold0.7 | imagenetv2-topimages | imagenet-sketch |   imagenet-a   |   imagenet-o   |
 |-----------------------------------------|-----------:|----------------|------------------------|------------------------------|-------------------------|----------------------|-----------------|----------------|----------------|
 | aognet_12m_bn_imagenet                  |     12.259 | (0.775, 0.939) | (0.84, 0.961)          | (0.648, 0.861)               | (0.738, 0.929)          | (0.79, 0.953)        | (0.257, 0.447)  | (0.054, 0.318) | (0.017, 0.054) |
@@ -34,7 +36,7 @@ Remarks: All the models are directly converted from the previous implementation,
 - 'an': Attentive Normalization (AN) with BN backbone is used. 'an_bn1' means that 'an' is used to replace the first 'bn' in a building block (basic block or bottleneck block), and similarly for 'an_bn2', 'an_bn3' and 'an_bn12'. 'an_all' means that all 'bn' layers are replaced by 'an'.
 
 
-# Top-1 and Top-5 Error Rates (w/ an advance training setup)
+# Top-1 and Top-5 Accuracy (w/ an advance training setup)
 |                  Model                  | Params (M) |  imagenet-1k   | imagenet-1k-reassessed | imagenetv2-matched-frequency | imagenetv2-threshold0.7 | imagenetv2-topimages | imagenet-sketch |   imagenet-a   |   imagenet-o   |
 |-----------------------------------------|-----------:|----------------|------------------------|------------------------------|-------------------------|----------------------|-----------------|----------------|----------------|
 | aognet_12m_bn_imagenet_200e_ls_mixup    |     12.259 | (0.782, 0.943) | (0.85, 0.967)          | (0.666, 0.869)               | (0.752, 0.935)          | (0.8, 0.958)         | (0.286, 0.471)  | (0.086, 0.367) | (0.017, 0.053) |
@@ -47,7 +49,7 @@ Remarks: All the models are directly converted from the previous implementation,
 | resnetv1d_101_an_imagenet_200e_ls_mixup |     45.020 | (0.81, 0.954)  | (0.863, 0.971)         | (0.696, 0.887)               | (0.778, 0.945)          | (0.82, 0.965)        | (0.3, 0.483)    | (0.199, 0.488) | (0.017, 0.049) |
 
 
-# Top-1 and Top-5 Error Rates (AN as a strong alternative to the [Squeeze-Excitation (SE) module](https://arxiv.org/pdf/1709.01507.pdf))
+# Top-1 and Top-5 Accuracy (AN as a strong alternative to the [Squeeze-Excitation (SE) module](https://arxiv.org/pdf/1709.01507.pdf))
 |                  Model                  | Params (M) |  imagenet-1k   | imagenet-1k-reassessed | imagenetv2-matched-frequency | imagenetv2-threshold0.7 | imagenetv2-topimages | imagenet-sketch |   imagenet-a   |   imagenet-o   |
 |-----------------------------------------|-----------:|----------------|------------------------|------------------------------|-------------------------|----------------------|-----------------|----------------|----------------|
 | resnet_50_se_bn2_imagenet               |     26.186 | (0.779, 0.939) | (0.842, 0.961)         | (0.658, 0.867)               | (0.748, 0.933)          | (0.796, 0.957)       | (0.236, 0.409)  | (0.062, 0.326) | (0.018, 0.054) |
