@@ -1,11 +1,14 @@
 # iVMCL-Release
 
-It is built on the great python libraries: [MMCV](https://github.com/open-mmlab/mmcv) (commit fe83261) and [MMDetection](https://github.com/open-mmlab/mmdetection).
+It is mainly built on two great python and PyTorch libraries: [MMCV](https://github.com/open-mmlab/mmcv) (commit fe83261, 10/01/2020) and [MMDetection](https://github.com/open-mmlab/mmdetection) (commit 5b18b94, 10/01/2020).
+
+It also uses codes from the great [PyToch Image Models](https://github.com/rwightman/pytorch-image-models) Github repo.
 
 It includes official PyTorch implementations of
 
-- [AOGNets](https://openaccess.thecvf.com/content_CVPR_2019/papers/Li_AOGNets_Compositional_Grammatical_Architectures_for_Deep_Learning_CVPR_2019_paper.pdf) (CVPR2019) for image classification in ImageNet-1000 and object detection and semantic segmentation in MS-COCO.  See the previous implementation at [AOGNet-V2](https://github.com/iVMCL/AOGNet-v2).
-- [Attention Normalization](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620069.pdf)(ECCV2020) for image classification in ImageNet-1000 and object detection and semantic segmentation in MS-COCO. See the previous implementation at [AttentiveNorm_Detection](https://github.com/iVMCL/AttentiveNorm_Detection).
+- [x] [AOGNets](https://openaccess.thecvf.com/content_CVPR_2019/papers/Li_AOGNets_Compositional_Grammatical_Architectures_for_Deep_Learning_CVPR_2019_paper.pdf) (CVPR2019) for image classification in ImageNet-1000 and object detection and semantic segmentation in MS-COCO.  See the previous implementation at [AOGNet-V2](https://github.com/iVMCL/AOGNet-v2).
+- [x] [Attentive Normalization](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620069.pdf)(ECCV2020) for image classification in ImageNet-1000 and object detection and semantic segmentation in MS-COCO. See the previous implementation at [AttentiveNorm_Detection](https://github.com/iVMCL/AttentiveNorm_Detection) based on MMDetection v1.x.
+- [] [Interpretable R-CNN](https://openaccess.thecvf.com/content_ICCV_2019/papers/Wu_Towards_Interpretable_Object_Detection_by_Unfolding_Latent_Structures_ICCV_2019_paper.pdf) (ICCV2019) for object detection in PASCAL VOC07 and MS-COCO. To be released a.s.a.p. Please stay tuned.
 
 ## Model Zoo
 
@@ -19,7 +22,7 @@ It follows the installation instructions in [MMCV](https://github.com/open-mmlab
 ### Requirements
 
 - Linux or macOS (Windows is not currently officially supported)
-- Python 3.6+
+- Python 3.6+ ([Anacoda](https://www.anaconda.com/) is recommended)
 - PyTorch 1.3+
 - CUDA 9.2+ (If you build PyTorch from source, CUDA 9.0 is also compatible)
 - GCC 5+
@@ -95,3 +98,48 @@ f. Compile [NVIDIA apex](https://github.com/NVIDIA/apex#quick-start) (for image 
 cd YOUR_PATH_TO/apex
 pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
 ```
+
+g. Update Pillow-SIMD for faster image IO
+
+```shell
+cd mmdetection/scripts_ivmcl
+chmod +x ./update_pillow.sh
+./update_pillow.sh
+```
+
+## Citations
+
+Please consider citing the following papers in your publications if they help your research.
+
+```
+@inproceedings{li2019aognets,
+  title={AOGNets: Compositional Grammatical Architectures for Deep Learning},
+  author={Li, Xilai and Song, Xi and Wu, Tianfu},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition {(CVPR)}},
+  pages={6220--6230},
+  year={2019}
+}
+
+@inproceedings{li2020attentive,
+  title={Attentive Normalization},
+  author={Li, Xilai and Sun, Wei and Wu, Tianfu},
+  booktitle={Proceedings of the European Conference on Computer Vision {(ECCV)}},
+  year={2020}
+}
+
+@inproceedings{wu2019towards,
+  title={Towards Interpretable Object Detection by Unfolding Latent Structures},
+  author={Wu, Tianfu and Song, Xi},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision {(ICCV)}},
+  pages={6033--6043},
+  year={2019}
+}
+```
+
+## Contact
+
+Please feel free to report issues and any related problems to Tianfu Wu (twu19 at ncsu dot edu).
+
+## License
+
+AOGNets related codes are under [RESEARCH ONLY LICENSE](LICENSE-AOGNET).

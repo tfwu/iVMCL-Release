@@ -121,5 +121,4 @@ backup*.py
 *.pkl
 *.pkl.json
 *.log.json
-data/
 work_dirs/
