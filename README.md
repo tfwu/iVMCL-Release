@@ -8,12 +8,12 @@ It includes official PyTorch implementations of
 
 - [x] [AOGNets](https://openaccess.thecvf.com/content_CVPR_2019/papers/Li_AOGNets_Compositional_Grammatical_Architectures_for_Deep_Learning_CVPR_2019_paper.pdf) (CVPR2019) for image classification in ImageNet-1000 and object detection and semantic segmentation in MS-COCO.  See the previous implementation at [AOGNet-V2](https://github.com/iVMCL/AOGNet-v2).
 - [x] [Attentive Normalization](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123620069.pdf)(ECCV2020) for image classification in ImageNet-1000 and object detection and semantic segmentation in MS-COCO. See the previous implementation at [AttentiveNorm_Detection](https://github.com/iVMCL/AttentiveNorm_Detection) based on MMDetection v1.x.
-- [] [Interpretable R-CNN](https://openaccess.thecvf.com/content_ICCV_2019/papers/Wu_Towards_Interpretable_Object_Detection_by_Unfolding_Latent_Structures_ICCV_2019_paper.pdf) (ICCV2019) for object detection in PASCAL VOC07 and MS-COCO. To be released a.s.a.p. Please stay tuned.
+- [ ] [Interpretable R-CNN](https://openaccess.thecvf.com/content_ICCV_2019/papers/Wu_Towards_Interpretable_Object_Detection_by_Unfolding_Latent_Structures_ICCV_2019_paper.pdf) (ICCV2019) for object detection in PASCAL VOC07 and MS-COCO. To be released a.s.a.p. Please stay tuned.
 
 ## Model Zoo
 
 - [x] [ImageNet Classification](docs/classification.md)
-- [] [MS-COCO Detection & Segmentation](docs/detection.md)
+- [ ] [MS-COCO Detection & Segmentation](docs/detection.md)
 
 ## Installation
 
