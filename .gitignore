@@ -118,6 +118,7 @@ mmcv/video/optflow_warp/flow_warp_module.cpp
 
 # ivmcl
 backup*.py
+backup*.*
 *.pkl
 *.pkl.json
 *.log.json
