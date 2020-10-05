@@ -91,6 +91,7 @@ e. Compile mmdetection
 ```shell
 cd mmdetection
 pip install -r requirements/build.txt
+pip install -r requirements/ivmcl.txt
 pip install -v -e .  # or "python setup.py develop"
 ```
 

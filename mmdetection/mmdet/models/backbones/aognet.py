@@ -47,7 +47,7 @@ from mmcv.cnn import (ConvModule, build_conv_layer, build_norm_layer,
 from mmcv.runner import load_checkpoint
 
 from mmdet.utils import get_root_logger
-from mmdet.ivmcl import build_aog, build_stem_layer, AOGBlock, AOGBlockV2
+from mmdet.ivmcl import build_aog, build_stem_layer, AOGBlock
 from ..builder import BACKBONES
 
 from .resnext_an import Bottleneck as _Bottleneck
@@ -168,56 +168,6 @@ class Bottleneck(_Bottleneck):
             out = cp.checkpoint(_inner_forward, *[x, identity])
         else:
             out = _inner_forward(x, identity)
-
-        out = self.relu(out)
-
-        return out
-
-
-class BottleneckV2(Bottleneck):
-
-    def forward(self, x, identity=None, lateral=None):
-
-        def _inner_forward(x, identity=None, lateral=None):
-            if identity is None:
-                identity = x
-
-            out = self.conv1(x)
-            out = self.norm1(out)
-            out = self.relu(out)
-
-            if self.with_plugins:
-                out = self.forward_plugin(out, self.after_conv1_plugin_names)
-
-            out = self.conv2(out)
-            out = self.norm2(out)
-            out = self.relu(out)
-
-            if self.with_plugins:
-                out = self.forward_plugin(out, self.after_conv2_plugin_names)
-
-            out = self.conv3(out)
-            if lateral is not None:
-                out -= lateral
-            out = self.norm3(out)
-
-            if self.with_plugins:
-                out = self.forward_plugin(out, self.after_conv3_plugin_names)
-
-            if self.drop_rate:
-                out = self.drop(out)
-
-            if self.downsample is not None:
-                identity = self.downsample(identity)
-
-            out += identity
-
-            return out
-
-        if self.with_cp and x.requires_grad:
-            out = cp.checkpoint(_inner_forward, *[x, identity, lateral])
-        else:
-            out = _inner_forward(x, identity, lateral)
 
         out = self.relu(out)
 
