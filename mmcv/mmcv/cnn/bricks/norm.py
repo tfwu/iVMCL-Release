@@ -112,7 +112,7 @@ def build_norm_layer(cfg, num_features, postfix=''):
     if 'Attn' in layer_type:
         assert 'num_affine_trans' in cfg_
         if 'AttnGN' in layer_type:
-            assert 'num_groups' in cfg_
+            assert 'num_groups' in cfg_ and 'num_groups_attn' in cfg_
         layer = norm_layer(num_features, **cfg_)
     elif layer_type != 'GN':
         layer = norm_layer(num_features, **cfg_)

@@ -814,7 +814,7 @@ class ResNetAN(nn.Module):
         if mode and self.norm_eval:
             for m in self.modules():
                 # trick: eval have effect on BatchNorm only
-                if isinstance(m, (AttnBatchNorm2d, AttnGroupNorm, _BatchNorm)):
+                if isinstance(m, _BatchNorm):
                     m.eval()
 
 

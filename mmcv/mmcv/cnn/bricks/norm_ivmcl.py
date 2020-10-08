@@ -1,8 +1,10 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from torch.nn.modules.batchnorm import _BatchNorm
 
 from .activation import build_activation_layer
+from ..utils import constant_init, kaiming_init
 
 
 class AttnWeights(nn.Module):
@@ -13,7 +15,7 @@ class AttnWeights(nn.Module):
                  attn_mode,
                  num_features,
                  num_affine_trans,
-                 num_groups=0,
+                 num_groups=1,
                  use_rsd=True,
                  use_maxpool=False,
                  eps=1e-3,
@@ -36,15 +38,29 @@ class AttnWeights(nn.Module):
                       nn.BatchNorm2d(num_affine_trans),
                       build_activation_layer(act_cfg)]
         elif attn_mode == 1:
-            assert num_groups > 0
-            layers = [nn.Conv2d(num_features, num_affine_trans, 1, bias=False),
-                      nn.GroupNorm(num_channels=num_affine_trans,
-                                   num_groups=num_groups),
-                      build_activation_layer(act_cfg)]
+            if num_groups > 0:
+                assert num_groups <= num_affine_trans
+                layers = [nn.Conv2d(num_features, num_affine_trans, 1, bias=False),
+                        nn.GroupNorm(num_channels=num_affine_trans,
+                                    num_groups=num_groups),
+                        build_activation_layer(act_cfg)]
+            else:
+                layers = [nn.Conv2d(num_features, num_affine_trans, 1, bias=False),
+                          nn.BatchNorm2d(num_affine_trans),
+                          build_activation_layer(act_cfg)]
         else:
             raise NotImplementedError("Unknow attention weight type")
 
         self.attention = nn.Sequential(*layers)
+
+        self.init_params()
+
+    def init_params(self):
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                kaiming_init(m)
+            elif isinstance(m, (_BatchNorm, nn.GroupNorm)):
+                constant_init(m, 1)
 
     def forward(self, x):
         b, c, h, w = x.size()
@@ -135,6 +151,7 @@ class AttnGroupNorm(nn.Module):
                  num_features,
                  num_affine_trans,
                  num_groups,
+                 num_groups_attn=1,
                  attn_mode=1,
                  eps=1e-5,
                  use_rsd=True,
@@ -155,10 +172,10 @@ class AttnGroupNorm(nn.Module):
         self.register_parameter('weight', None)
         self.register_parameter('bias', None)
 
-        self.attn_weights = AttnWeights(attn_mode,
+        self.attention_weights = AttnWeights(attn_mode,
                                         num_features,
                                         num_affine_trans,
-                                        num_groups=num_affine_trans//2,
+                                        num_groups=num_groups_attn,
                                         use_rsd=use_rsd,
                                         use_maxpool=use_maxpool,
                                         eps=eps_var,

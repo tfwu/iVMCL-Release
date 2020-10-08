@@ -11,14 +11,16 @@ We will train models using this refactored code and release the trained models h
   <tr>
     <th>Architecture</th>
     <th>Backbone</th>
+    <th>Neck</th>
     <th>Head</th>
     <th>box AP</th>
     <th>mask AP</th>
     <th>Remarks</th>
   </tr>
   <tr>
-    <td rowspan="5">ResNet-50</td>
+    <td rowspan="7">ResNet-50</td>
     <td>BN</td>
+    <td>-</td>
     <td>-</td>
     <td>39.2</td>
     <td>35.4</td>
@@ -27,12 +29,22 @@ We will train models using this refactored code and release the trained models h
   <tr>
     <td>AN (w/ BN)</td>
     <td>-</td>
+    <td>-</td>
     <td>40.8</td>
     <td>36.4</td>
     <td><a href="https://github.com/iVMCL/AttentiveNorm_Detection">AttentiveNorm_Detection trained</a></td>
   </tr>
   <tr>
     <td>AN (w/ BN)</td>
+    <td>GN</td>
+    <td>AN (w/ GN)</td>
+    <td>41.6</td>
+    <td>37.4</td>
+    <td><a href="https://github.com/iVMCL/AttentiveNorm_Detection">AttentiveNorm_Detection trained</a></td>
+  </tr>
+  <tr>
+    <td>AN (w/ BN)</td>
+    <td>-</td>
     <td>-</td>
     <td>41.5</td>
     <td>36.8</td>
@@ -41,12 +53,16 @@ We will train models using this refactored code and release the trained models h
   <tr>
     <td>*GN</td>
     <td>GN</td>
+    <td>GN</td>
     <td>40.3</td>
     <td>35.7</td>
+    <td>-</td>
   </tr>
     <tr>
     <td>*SN</td>
     <td>SN</td>
+    <td>SN</td>
     <td>41.0</td>
     <td>36.5</td>
+    <td>-</td>
 </table>
